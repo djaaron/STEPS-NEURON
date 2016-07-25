@@ -1,0 +1,25 @@
+{load_file("nrngui.hoc")}
+
+num_cells = 3
+
+create soma[num_cells]
+
+objref sl
+sl = new SectionList()
+
+forall {
+	diam = 12
+	insert cdiffdemo
+	sl.append()
+}
+objref st
+st = new Shape(sl)
+
+
+i = 0
+forsec sl {
+	for j=0, n3d()-1 {
+		pt3dchange(j,x3d(j),y3d(j)+25*i,z3d(j),diam)
+	}
+	i += 1	
+}
